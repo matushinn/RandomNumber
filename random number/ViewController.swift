@@ -94,9 +94,9 @@ class ViewController: UIViewController {
         //答えを表示するボタンのタグをランダムで設定
         index = Int(arc4random(lower: 0, upper: 24))
         
-        button()
+        button(UIButton())
     }
-    func button(){
+    func button(_ sender:Any){
         mode0.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode1.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode2.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
@@ -105,7 +105,6 @@ class ViewController: UIViewController {
         mode5.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode6.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode7.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
-        
         mode8.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode9.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode10.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
@@ -125,12 +124,74 @@ class ViewController: UIViewController {
         mode23.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode24.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         
+        switch index {
+        case 0:
+            mode0.setTitle(String(result), for: .normal)
+        case 1:
+            mode1.setTitle(String(result), for: .normal)
+            
+        case 2:
+            mode2.setTitle(String(result), for: .normal)
+        case 3:
+            mode3.setTitle(String(result), for: .normal)
+            
+        case 4:
+            mode4.setTitle(String(result), for: .normal)
+        case 5:
+            mode5.setTitle(String(result), for: .normal)
+            
+        case 6:
+            mode6.setTitle(String(result), for: .normal)
+        case 7:
+            mode7.setTitle(String(result), for: .normal)
+            
+        case 8:
+            mode8.setTitle(String(result), for: .normal)
+        case 9:
+            mode9.setTitle(String(result), for: .normal)
+            
+        case 10:
+            mode10.setTitle(String(result), for: .normal)
+        case 11:
+            mode11.setTitle(String(result), for: .normal)
+            
+        case 12:
+            mode12.setTitle(String(result), for: .normal)
+        case 13:
+            mode13.setTitle(String(result), for: .normal)
+            
+        case 14:
+            mode14.setTitle(String(result), for: .normal)
+        case 15:
+            mode15.setTitle(String(result), for: .normal)
+            
+        case 16:
+            mode16.setTitle(String(result), for: .normal)
+        case 17:
+            mode17.setTitle(String(result), for: .normal)
+            
+        case 18:
+            mode18.setTitle(String(result), for: .normal)
+        case 19:
+            mode19.setTitle(String(result), for: .normal)
+            
+        case 20:
+            mode20.setTitle(String(result), for: .normal)
+        case 21:
+            mode21.setTitle(String(result), for: .normal)
+            
+        case 22:
+            mode22.setTitle(String(result), for: .normal)
+        case 23:
+            mode23.setTitle(String(result), for: .normal)
+            
+        case 24:
+            mode24.setTitle(String(result), for: .normal)
         
-        
+        default:
+            break
+        }
     }
-    
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -141,7 +202,8 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func tappedModeButton(_ sender: Any) {
+    @IBAction func tappedModeButton(_ sender: UIButton) {
+        
         
         
         
