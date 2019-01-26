@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import LTMorphingLabel
 
 class ViewController: UIViewController {
   
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet weak var leftLabel: LTMorphingLabel!
+    @IBOutlet weak var rightLabel: LTMorphingLabel!
     
-    @IBOutlet weak var calcLabel: UILabel!
+    @IBOutlet weak var calcLabel: LTMorphingLabel!
     
     @IBOutlet weak var mode0: UIButton!
     @IBOutlet weak var mode1: UIButton!
@@ -191,6 +192,7 @@ class ViewController: UIViewController {
         default:
             break
         }
+        print(index)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,14 +200,21 @@ class ViewController: UIViewController {
         //問題表示
         updateLabelQuestion()
         
+        rightLabel.morphingEffect = .anvil
+        leftLabel.morphingEffect = .anvil
+        calcLabel.morphingEffect = .anvil
+        
     }
     
     
     
     @IBAction func tappedModeButton(_ sender: UIButton) {
-        
-        
-        
+        print(index)
+        //正解ボタンを押した時
+        if sender.tag == index{
+            updateLabelQuestion()
+            print("success")
+        }
         
     }
     
