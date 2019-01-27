@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var calcLabel: LTMorphingLabel!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
     @IBOutlet weak var mode0: UIButton!
     @IBOutlet weak var mode1: UIButton!
     @IBOutlet weak var mode2: UIButton!
@@ -44,14 +46,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var mode23: UIButton!
     @IBOutlet weak var mode24: UIButton!
     
-    
     var leftNumber :Int=0
     var rightNumber :Int=0
     var result:Int = 0
     
+    var calculation:Int = 0
     var index:Int = 0
     
      var calc:[String] = ["+","-","×"]
+    
+    //timer
+    var timer:Timer!
+    var count:Double = 0.0
+    
     
     //乱数
     func arc4random(lower: UInt32, upper: UInt32) -> UInt32 {
@@ -61,26 +68,63 @@ class ViewController: UIViewController {
         
         return arc4random_uniform(upper - lower) + lower
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //問題表示
+        updateLabelQuestion()
+        
+        rightLabel.morphingEffect = .anvil
+        leftLabel.morphingEffect = .anvil
+        calcLabel.morphingEffect = .anvil
+        
+        startTimer()
+        
+    }
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+    }
+    
+    //    timer
+    @objc func update(){
+        count = count + 0.1
+        timerLabel.text = String(format: "%.1f", count)
+        if count < 0{
+            timer.invalidate()
+            self.performSegue(withIdentifier: "toResult", sender: nil)
+            
+            
+        }
+    }
+    
+    func randomNum(){
+        //1~9までの数字
+        leftNumber=Int(arc4random(lower: 0, upper: 9))+1
+        rightNumber=Int(arc4random(lower: 0, upper: 9))+1
+        
+       
+        calculation = Int( arc4random_uniform(UInt32(calc.count-1)) )+1
+    }
     //問題のアップデート
     func updateLabelQuestion(){
-        //1~9までの数字
-        leftNumber=Int(arc4random(lower: 1, upper: 10))
-        rightNumber=Int(arc4random(lower: 1, upper: 10))
         
-        leftLabel.text = String(leftNumber)
-        rightLabel.text = String(rightNumber)
-        
-        let calculation = Int( arc4random_uniform(UInt32(calc.count)) )
+        randomNum()
         if calc[calculation] == "+"{
             calcLabel.textColor = UIColor.blue
         }
         if calc[calculation] == "-"{
             calcLabel.textColor = UIColor.green
+            if leftNumber < rightNumber{
+                randomNum()
+            }
         }
         if calc[calculation] == "×"{
             calcLabel.textColor = UIColor.yellow
         }
         
+        leftLabel.text = String(leftNumber)
+        rightLabel.text = String(rightNumber)
         calcLabel.text = calc[calculation]
         
         if calcLabel.text == "+"{
@@ -94,10 +138,11 @@ class ViewController: UIViewController {
         }
         //答えを表示するボタンのタグをランダムで設定
         index = Int(arc4random(lower: 0, upper: 24))
-        
+    
         button(UIButton())
     }
     func button(_ sender:Any){
+        
         mode0.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode1.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode2.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
@@ -110,7 +155,6 @@ class ViewController: UIViewController {
         mode9.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode10.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode11.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
-        
         mode12.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode13.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode14.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
@@ -125,12 +169,12 @@ class ViewController: UIViewController {
         mode23.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         mode24.setTitle( String(arc4random(lower: 0, upper: 100)), for: .normal)
         
+        //index番目のタグのボタンを正解にする
         switch index {
         case 0:
             mode0.setTitle(String(result), for: .normal)
         case 1:
             mode1.setTitle(String(result), for: .normal)
-            
         case 2:
             mode2.setTitle(String(result), for: .normal)
         case 3:
@@ -194,24 +238,12 @@ class ViewController: UIViewController {
         }
         print(index)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //問題表示
-        updateLabelQuestion()
-        
-        rightLabel.morphingEffect = .anvil
-        leftLabel.morphingEffect = .anvil
-        calcLabel.morphingEffect = .anvil
-        
-    }
-    
     
     
     @IBAction func tappedModeButton(_ sender: UIButton) {
         print(index)
         //正解ボタンを押した時
-        if sender.tag == index{
+        if sender.currentTitle == String(result){
             updateLabelQuestion()
             print("success")
         }
