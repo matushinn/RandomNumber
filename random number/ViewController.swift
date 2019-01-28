@@ -63,6 +63,8 @@ class ViewController: UIViewController {
     var count:Double = 0.0
     
     
+    var gameFormat = 0
+    var modeQuestionNum = 0.0
     var modeSecond = 0.0
     var level:Int = 0
     
@@ -90,6 +92,11 @@ class ViewController: UIViewController {
         leftLabel.morphingEffect = .anvil
         calcLabel.morphingEffect = .anvil
         
+        //GameFormatによって問題数変更
+        if gameFormat == 2{
+            questionNum = Int(modeQuestionNum)
+        }
+        
         switch modeSecond {
         case 30:
             count = 30.0
@@ -116,14 +123,24 @@ class ViewController: UIViewController {
     
     //    timer
     @objc func update(){
-        count = count - 0.1
-        timerLabel.text = String(format: "%.1f", count)
-        if count < 0{
-            timer.invalidate()
-            self.performSegue(withIdentifier: "toResult", sender: nil)
+        switch gameFormat {
+        //制限時間
+        case 1:
+            count = count - 0.1
             
+            if count < 0{
+                timer.invalidate()
+                self.performSegue(withIdentifier: "toResult", sender: nil)
+            }
+        //制限問題
+        case 2:
+            count = count + 0.1
             
+        default:
+            break
         }
+        timerLabel.text = String(format: "%.1f", count)
+        
     }
     
     
@@ -281,19 +298,32 @@ class ViewController: UIViewController {
     
     
     @IBAction func tappedModeButton(_ sender: UIButton) {
-        print(index)
+    
         //正解ボタンを押した時
         if sender.currentTitle == String(result){
             correctAnsNum += 1
-            questionNum += 1
+            //制限時間
+            if gameFormat == 1{
+                questionNum += 1
+            }else{
+                //制限問題
+                questionNum -= 1
+                if questionNum == 0{
+                    self.performSegue(withIdentifier: "toResult", sender: nil)
+                }
+            }
             updateLabelQuestion()
             print("success")
             
         }
         
     }
+    @IBAction func back(_ sender: Any) {
+        self.performSegue(withIdentifier: "toFirst", sender: nil)
+    }
     
-
+  
+    
     
 }
 

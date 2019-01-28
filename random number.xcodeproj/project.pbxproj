@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EB99E471A9E572A1517E79F /* Pods_random_number.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5367542C0AA98521962C32 /* Pods_random_number.framework */; };
+		37186F4821FEE49E008FF041 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37186F4721FEE49E008FF041 /* FourthViewController.swift */; };
 		3728E6B121AFDDFE0053497B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3728E6B021AFDDFE0053497B /* AppDelegate.swift */; };
 		3728E6B321AFDDFE0053497B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3728E6B221AFDDFE0053497B /* ViewController.swift */; };
 		3728E6B621AFDDFE0053497B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3728E6B421AFDDFE0053497B /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37186F4721FEE49E008FF041 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		3728E6AD21AFDDFE0053497B /* random number.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "random number.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3728E6B021AFDDFE0053497B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3728E6B221AFDDFE0053497B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				3753D1FA21FDAAD9007A424D /* SecondViewController.swift */,
 				3753D1FC21FDAAE5007A424D /* ThirdViewController.swift */,
 				3753D1FE21FDAB01007A424D /* ResultViewController.swift */,
+				37186F4721FEE49E008FF041 /* FourthViewController.swift */,
 			);
 			path = "random number";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				3753D1FB21FDAAD9007A424D /* SecondViewController.swift in Sources */,
 				3753D1F921FDAAC8007A424D /* FirstViewController.swift in Sources */,
 				3753D1FD21FDAAE5007A424D /* ThirdViewController.swift in Sources */,
+				37186F4821FEE49E008FF041 /* FourthViewController.swift in Sources */,
 				3728E6B321AFDDFE0053497B /* ViewController.swift in Sources */,
 				3728E6B121AFDDFE0053497B /* AppDelegate.swift in Sources */,
 				3753D1FF21FDAB01007A424D /* ResultViewController.swift in Sources */,

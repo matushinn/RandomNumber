@@ -13,12 +13,12 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var rankLabel: LTMorphingLabel!
     @IBOutlet weak var lastScore: LTMorphingLabel!
-    @IBOutlet weak var highScore: LTMorphingLabel!
     
     var modeSecond = 0.0
     var level:Int = 0
     //正解数
     var correctAnsNum:Int = 0
+    
     
     var rankResult:String!
     var rank:Double = 0.0
@@ -29,9 +29,10 @@ class ResultViewController: UIViewController {
 
         rankLabel.morphingEffect = .burn
         lastScore.morphingEffect = .sparkle
-        highScore.morphingEffect = .sparkle
+       
         
         lastScore.text = "\(correctAnsNum)問"
+        
         
         rankCheck()
     }

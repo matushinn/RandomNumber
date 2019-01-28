@@ -10,7 +10,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    var level:Int = 0
+    //ゲーム形式の区分け
+    var gameFormat:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,20 +19,17 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func tappedLevelButton(_ sender: UIButton) {
+    @IBAction func tappedGameFormatButton(_ sender: UIButton) {
         switch sender.tag {
         case 1 :
-            level = 1
+            gameFormat = 1
             print("初級")
             self.performSegue(withIdentifier: "toThird", sender: self)
         case 2 :
-            level = 2
+            gameFormat = 2
             print("中級")
             self.performSegue(withIdentifier: "toThird", sender: self)
-        case 3 :
-            level = 3
-            print("上級")
-            self.performSegue(withIdentifier: "toThird", sender: self)
+        
         default:
             break
         }
@@ -40,7 +38,7 @@ class SecondViewController: UIViewController {
         if segue.identifier == "toThird"{
             //画面取り出す
             let thirdVC = segue.destination as! ThirdViewController
-            thirdVC.level = level
+            thirdVC.gameFormat = gameFormat
         }
     }
     

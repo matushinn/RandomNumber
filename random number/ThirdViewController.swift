@@ -10,39 +10,44 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
-    var level = 0
-    
-    var modeSecond = 0.0
 
+    var gameFormat:Int = 0
+    var level:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
     
-    @IBAction func modeButton(_ sender: UIButton) {
+    @IBAction func tappedLevelButton(_ sender: UIButton) {
         switch sender.tag {
-        case 0:
-            modeSecond = 30
-        case 1:
-            modeSecond = 60
-        case 2:
-            modeSecond = 90
-        case 3:
-            modeSecond = 120
+        case 1 :
+            level = 1
+            print("初級")
+            self.performSegue(withIdentifier: "toFourth", sender: self)
+        case 2 :
+            level = 2
+            print("中級")
+            self.performSegue(withIdentifier: "toFourth", sender: self)
+        case 3 :
+            level = 3
+            print("上級")
+            self.performSegue(withIdentifier: "toFourth", sender: self)
         default:
             break
         }
-        self.performSegue(withIdentifier: "toFourth", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFourth"{
-            let questionVC = segue.destination as! ViewController
-            //値渡し
-            questionVC.level = level
-            questionVC.modeSecond = modeSecond
+            //画面取り出す
+            let fourthVC = segue.destination as! FourthViewController
+            fourthVC.level = level
+            fourthVC.gameFormat = gameFormat
         }
     }
-
+    
+    
+    
     
 }
