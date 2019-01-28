@@ -13,6 +13,10 @@
 		3728E6B621AFDDFE0053497B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3728E6B421AFDDFE0053497B /* Main.storyboard */; };
 		3728E6B821AFDE020053497B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3728E6B721AFDE020053497B /* Assets.xcassets */; };
 		3728E6BB21AFDE020053497B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3728E6B921AFDE020053497B /* LaunchScreen.storyboard */; };
+		3753D1F921FDAAC8007A424D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753D1F821FDAAC8007A424D /* FirstViewController.swift */; };
+		3753D1FB21FDAAD9007A424D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753D1FA21FDAAD9007A424D /* SecondViewController.swift */; };
+		3753D1FD21FDAAE5007A424D /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753D1FC21FDAAE5007A424D /* ThirdViewController.swift */; };
+		3753D1FF21FDAB01007A424D /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753D1FE21FDAB01007A424D /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		3728E6B721AFDE020053497B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3728E6BA21AFDE020053497B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3728E6BC21AFDE020053497B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3753D1F821FDAAC8007A424D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		3753D1FA21FDAAD9007A424D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3753D1FC21FDAAE5007A424D /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		3753D1FE21FDAB01007A424D /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		4A5367542C0AA98521962C32 /* Pods_random_number.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_random_number.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC7B02E22308F634D853567 /* Pods-random number.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-random number.release.xcconfig"; path = "Pods/Target Support Files/Pods-random number/Pods-random number.release.xcconfig"; sourceTree = "<group>"; };
 		CAD2C9E888A5D927D7D12A3D /* Pods-random number.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-random number.debug.xcconfig"; path = "Pods/Target Support Files/Pods-random number/Pods-random number.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +75,10 @@
 				3728E6B721AFDE020053497B /* Assets.xcassets */,
 				3728E6B921AFDE020053497B /* LaunchScreen.storyboard */,
 				3728E6BC21AFDE020053497B /* Info.plist */,
+				3753D1F821FDAAC8007A424D /* FirstViewController.swift */,
+				3753D1FA21FDAAD9007A424D /* SecondViewController.swift */,
+				3753D1FC21FDAAE5007A424D /* ThirdViewController.swift */,
+				3753D1FE21FDAB01007A424D /* ResultViewController.swift */,
 			);
 			path = "random number";
 			sourceTree = "<group>";
@@ -208,8 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3753D1FB21FDAAD9007A424D /* SecondViewController.swift in Sources */,
+				3753D1F921FDAAC8007A424D /* FirstViewController.swift in Sources */,
+				3753D1FD21FDAAE5007A424D /* ThirdViewController.swift in Sources */,
 				3728E6B321AFDDFE0053497B /* ViewController.swift in Sources */,
 				3728E6B121AFDDFE0053497B /* AppDelegate.swift in Sources */,
+				3753D1FF21FDAB01007A424D /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

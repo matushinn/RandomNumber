@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var calcLabel: LTMorphingLabel!
     
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var questionNumLabel: UILabel!
+    @IBOutlet weak var backLabel: UILabel!
+    
     
     @IBOutlet weak var mode0: UIButton!
     @IBOutlet weak var mode1: UIButton!
@@ -60,6 +63,14 @@ class ViewController: UIViewController {
     var count:Double = 0.0
     
     
+    var modeSecond = 0.0
+    var level:Int = 0
+    
+    //問題数
+    var questionNum:Int = 1
+    //正解数
+    var correctAnsNum:Int = 0
+    
     //乱数
     func arc4random(lower: UInt32, upper: UInt32) -> UInt32 {
         guard upper >= lower else {
@@ -79,6 +90,23 @@ class ViewController: UIViewController {
         leftLabel.morphingEffect = .anvil
         calcLabel.morphingEffect = .anvil
         
+        switch modeSecond {
+        case 30:
+            count = 30.0
+            timerLabel.text = "30.0"
+        case 60:
+            count = 60.0
+            timerLabel.text = "60.0"
+        case 90:
+            count = 90.0
+            timerLabel.text = "90.0"
+        case 120:
+            count = 120
+            timerLabel.text = "120"
+        default:
+            break
+        }
+        
         startTimer()
         
     }
@@ -88,7 +116,7 @@ class ViewController: UIViewController {
     
     //    timer
     @objc func update(){
-        count = count + 0.1
+        count = count - 0.1
         timerLabel.text = String(format: "%.1f", count)
         if count < 0{
             timer.invalidate()
@@ -98,6 +126,16 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResult"{
+            let resultVC = segue.destination as! ResultViewController
+            
+            resultVC.level = level
+            resultVC.modeSecond = modeSecond
+            resultVC.correctAnsNum = correctAnsNum
+        }
+    }
     func randomNum(){
         //1~9までの数字
         leftNumber=Int(arc4random(lower: 0, upper: 9))+1
@@ -126,6 +164,8 @@ class ViewController: UIViewController {
         leftLabel.text = String(leftNumber)
         rightLabel.text = String(rightNumber)
         calcLabel.text = calc[calculation]
+        
+        questionNumLabel.text = String(questionNum)
         
         if calcLabel.text == "+"{
             result = leftNumber + rightNumber
@@ -244,8 +284,11 @@ class ViewController: UIViewController {
         print(index)
         //正解ボタンを押した時
         if sender.currentTitle == String(result){
+            correctAnsNum += 1
+            questionNum += 1
             updateLabelQuestion()
             print("success")
+            
         }
         
     }
