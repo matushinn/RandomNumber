@@ -21,6 +21,7 @@ class ThirdViewController: UIViewController {
     }
     
     @IBAction func tappedLevelButton(_ sender: UIButton) {
+        
         switch sender.tag {
         case 1 :
             level = 1
@@ -46,7 +47,6 @@ class ThirdViewController: UIViewController {
             fourthVC.gameFormat = gameFormat
         }
     }
-    
     
     
     

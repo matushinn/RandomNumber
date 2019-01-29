@@ -20,6 +20,8 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func tappedGameFormatButton(_ sender: UIButton) {
+        
+        
         switch sender.tag {
         case 1 :
             gameFormat = 1

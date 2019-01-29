@@ -16,13 +16,15 @@ class FourthViewController: UIViewController {
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
     @IBOutlet weak var fourthButton: UIButton!
+    @IBOutlet weak var fifthButton: UIButton!
+    @IBOutlet weak var sixthButton: UIButton!
     
     //ゲーム形式区分け
     var gameFormat:Int = 0
     var level = 0
     
     var modeSecond = 0.0
-    var modeQuestionsNum = 0.0
+    var modeQuestionsNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class FourthViewController: UIViewController {
             secondButton.setTitle("60s", for: .normal)
             thirdButton.setTitle("90s", for: .normal)
             fourthButton.setTitle("120s", for: .normal)
+            fifthButton.setTitle("150s", for: .normal)
+            sixthButton.setTitle("180s", for: .normal)
             
         case 2:
             titleLabel.text = "制限問題"
@@ -45,6 +49,9 @@ class FourthViewController: UIViewController {
             secondButton.setTitle("20問", for: .normal)
             thirdButton.setTitle("30問", for: .normal)
             fourthButton.setTitle("50問", for: .normal)
+            fifthButton.setTitle("75問", for: .normal)
+            sixthButton.setTitle("100問", for: .normal)
+            
             
         default:
             break
@@ -52,6 +59,13 @@ class FourthViewController: UIViewController {
     }
     
     @IBAction func modeButton(_ sender: UIButton) {
+        //ボタンを回転
+        let rotationAnimation = CABasicAnimation(keyPath:"transform.rotation.z")
+        rotationAnimation.toValue = CGFloat(Double.pi / 180) * 180
+        rotationAnimation.duration = 0.3
+        rotationAnimation.repeatCount = 1
+        sender.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
         //gameformatの区別
         if gameFormat == 1{
             switch sender.tag {
@@ -63,6 +77,10 @@ class FourthViewController: UIViewController {
                 modeSecond = 90
             case 3:
                 modeSecond = 120
+            case 4:
+                modeSecond = 150
+            case 5:
+                modeSecond = 180
             default:
                 break
             }
@@ -77,6 +95,11 @@ class FourthViewController: UIViewController {
                 modeQuestionsNum = 30
             case 3:
                 modeQuestionsNum = 50
+            case 4:
+                modeQuestionsNum = 75
+            case 5:
+                modeQuestionsNum = 100
+                
             default:
                 break
             }
@@ -91,7 +114,7 @@ class FourthViewController: UIViewController {
             questionVC.level = level
             questionVC.modeSecond = modeSecond
             questionVC.gameFormat = gameFormat
-            questionVC.modeQuestionNum = modeQuestionsNum
+            questionVC.modeQuestionsNum = modeQuestionsNum
         }
     }
 

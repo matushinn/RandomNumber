@@ -8,9 +8,11 @@
 
 import UIKit
 import LTMorphingLabel
+import AVFoundation
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var levelLabel: LTMorphingLabel!
     @IBOutlet weak var rankLabel: LTMorphingLabel!
     @IBOutlet weak var lastScore: LTMorphingLabel!
     
@@ -18,28 +20,72 @@ class ResultViewController: UIViewController {
     var level:Int = 0
     //正解数
     var correctAnsNum:Int = 0
+    var modeQuestionsNum = 0
     
-    
+    var gameFormat = 0
     var rankResult:String!
     var rank:Double = 0.0
     
+    var levelText = ""
+    
+    var count:Double = 0.0
+    
+    var audioPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //音楽
+        do {
+            let filePath = Bundle.main.path(forResource: "goal",ofType: "mp3")
+            
+            let musicPath = URL(fileURLWithPath: filePath!)
+            audioPlayer = try AVAudioPlayer(contentsOf: musicPath)
+            
+            
+        } catch {
+            print("error")
+        }
         rankLabel.morphingEffect = .burn
         lastScore.morphingEffect = .sparkle
-       
+        levelLabel.morphingEffect = .burn
         
-        lastScore.text = "\(correctAnsNum)問"
+        switch level {
+        case 1:
+            levelText = "初級"
+        case 2:
+            levelText = "中級"
+        case 3:
+            levelText = "上級"
+        default:
+            break
+        }
+        levelLabel.text = levelText
         
+        switch gameFormat {
+            
+        case 1:
+            //制限時間
+            lastScore.text = "\(correctAnsNum)問"
+            rank = modeSecond/Double(correctAnsNum)
+            
+        case 2:
+            //制限問題
+            print("count")
+            lastScore.text = String(format: "%.1f", count)+"秒"
+            rank = count/Double(correctAnsNum)
+            
+        default:
+            break
+        }
         
         rankCheck()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        audioPlayer.play()
+    }
     func rankCheck(){
-        rank = modeSecond/Double(correctAnsNum)
-        
+       
         switch level{
         case 1:
             switch rank {
@@ -87,7 +133,7 @@ class ResultViewController: UIViewController {
                 rankLabel.textColor = UIColor.purple
                 rankLabel.text = "Greate!"
             case 2.0..<3.0:
-                rankLabel.textColor = UIColor.orange
+                rankLabel.textColor = UIColor.yellow
                 rankLabel.text = "Good!"
             case 3.0..<4.0:
                 rankLabel.textColor = UIColor.yellow
@@ -96,7 +142,7 @@ class ResultViewController: UIViewController {
                 rankLabel.textColor = UIColor.yellow
                 rankLabel.text = "S"
             case 5.0..<5.5:
-                rankLabel.textColor = UIColor.yellow
+                rankLabel.textColor = UIColor.orange
                 rankLabel.text = "A"
             case 5.5..<6.0:
                 rankLabel.textColor = UIColor.red
@@ -134,7 +180,7 @@ class ResultViewController: UIViewController {
                 rankLabel.textColor = UIColor.yellow
                 rankLabel.text = "B"
             case 6.0..<7.0:
-                rankLabel.textColor = UIColor.yellow
+                rankLabel.textColor = UIColor.blue
                 rankLabel.text = "C"
             case 7.0..<8.0:
                 rankLabel.textColor = UIColor.red
@@ -157,14 +203,42 @@ class ResultViewController: UIViewController {
             break
         }
         
-        rankLabel.text = rankResult
+        
     
     }
     
 
-    @IBAction func back(_ sender: Any) {
+    @IBAction func back(_ sender: UIButton) {
+        
+        
+        audioPlayer.stop()
         self.performSegue(withIdentifier: "toFirst", sender: nil)
     }
-    
+    @IBAction func TweetButton(sender: UIButton) {
+        
+        // 共有する項目
+        let shareText = "HANAMARU\n\(levelText)\n\(rankResult!)\n\(lastScore.text!)"
+        let shareWebsite = NSURL(string: "https://itunes.apple.com/us/app/numbernumber/id1444835578?l=ja&ls=1&mt=8")!
+        
+        
+        let activityItems = [shareText, shareWebsite] as [Any]
+        
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        
+        
+        // 使用しないアクティビティタイプ
+        let excludedActivityTypes = [
+            UIActivity.ActivityType.postToFacebook,
+            UIActivity.ActivityType.message,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.print
+        ]
+        
+        activityVC.excludedActivityTypes = excludedActivityTypes
+        
+        // UIActivityViewControllerを表示
+        self.present(activityVC, animated: true, completion: nil)
+        
+    }
 
 }
