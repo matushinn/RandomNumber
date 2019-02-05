@@ -77,8 +77,9 @@ class ViewController: UIViewController {
     //問題数
     var questionNum:Int = 1
     //正解数
-    var correctAnsNum:Int = 0
-    
+    var correctAnsNum = 0
+    //不正解数
+    var incorrectAnsNum = 0.0
     
     //乱数
     func arc4random(lower: UInt32, upper: UInt32) -> UInt32 {
@@ -166,6 +167,7 @@ class ViewController: UIViewController {
             resultVC.modeQuestionsNum = modeQuestionsNum
             resultVC.gameFormat = gameFormat
             resultVC.count = count
+            resultVC.incorrectAnsNum = incorrectAnsNum
             resultVC.correctAnsNum = correctAnsNum
         }
     }
@@ -213,7 +215,7 @@ class ViewController: UIViewController {
             calcLabel.textColor = UIColor.blue
         }
         if calc[calculation] == "-"{
-            calcLabel.textColor = UIColor.green
+            calcLabel.textColor = UIColor.purple
             if leftNumber < rightNumber{
                 randomNum()
             }
@@ -435,6 +437,8 @@ class ViewController: UIViewController {
             print("success")
             
         }else{
+            //不正解数
+            incorrectAnsNum += 0.5
             //不正解
             vibrate()
             //不正解音
@@ -451,9 +455,8 @@ class ViewController: UIViewController {
         
     }
     @IBAction func back(_ sender: Any) {
-       
+
     }
-    
     
     
     

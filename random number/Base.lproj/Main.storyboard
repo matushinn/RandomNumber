@@ -679,7 +679,7 @@
                                         <connections>
                                             <action selector="back:" destination="ZF2-7i-C0l" eventType="touchUpInside" id="Tdm-ZV-mN5"/>
                                             <action selector="modeButton:" destination="0BQ-bU-sDt" eventType="touchUpInside" id="vbP-o9-U8H"/>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="0yH-ZF-dZn"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="BwS-tm-Lt2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-Dh-d6y" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
@@ -1404,6 +1404,6 @@
         <image name="hanamaru03.png" width="210" height="210"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0yH-ZF-dZn"/>
+        <segue reference="BwS-tm-Lt2"/>
     </inferredMetricsTieBreakers>
 </document>

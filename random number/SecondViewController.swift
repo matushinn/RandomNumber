@@ -16,20 +16,20 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tappedGameFormatButton(_ sender: UIButton) {
         
-        
         switch sender.tag {
         case 1 :
+            //制限時間
             gameFormat = 1
-            print("初級")
+    
             self.performSegue(withIdentifier: "toThird", sender: self)
         case 2 :
+            //制限問題
             gameFormat = 2
-            print("中級")
+            
             self.performSegue(withIdentifier: "toThird", sender: self)
         
         default:

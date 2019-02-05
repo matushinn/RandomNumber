@@ -27,7 +27,6 @@
 		379777E122001502001BA3B3 /* hanamaru02.png in Resources */ = {isa = PBXBuildFile; fileRef = 379777DF22001501001BA3B3 /* hanamaru02.png */; };
 		379777E222001502001BA3B3 /* hanamaru01.png in Resources */ = {isa = PBXBuildFile; fileRef = 379777E022001501001BA3B3 /* hanamaru01.png */; };
 		379777E42200164B001BA3B3 /* hanamaru03.png in Resources */ = {isa = PBXBuildFile; fileRef = 379777E32200164B001BA3B3 /* hanamaru03.png */; };
-		379777E62200584A001BA3B3 /* backhanamaru01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 379777E522005849001BA3B3 /* backhanamaru01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +51,6 @@
 		379777DF22001501001BA3B3 /* hanamaru02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hanamaru02.png; sourceTree = "<group>"; };
 		379777E022001501001BA3B3 /* hanamaru01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hanamaru01.png; sourceTree = "<group>"; };
 		379777E32200164B001BA3B3 /* hanamaru03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hanamaru03.png; sourceTree = "<group>"; };
-		379777E522005849001BA3B3 /* backhanamaru01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backhanamaru01.jpg; sourceTree = "<group>"; };
 		4A5367542C0AA98521962C32 /* Pods_random_number.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_random_number.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC7B02E22308F634D853567 /* Pods-random number.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-random number.release.xcconfig"; path = "Pods/Target Support Files/Pods-random number/Pods-random number.release.xcconfig"; sourceTree = "<group>"; };
 		CAD2C9E888A5D927D7D12A3D /* Pods-random number.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-random number.debug.xcconfig"; path = "Pods/Target Support Files/Pods-random number/Pods-random number.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,17 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				3728E6B021AFDDFE0053497B /* AppDelegate.swift */,
-				3728E6B221AFDDFE0053497B /* ViewController.swift */,
-				3728E6B421AFDDFE0053497B /* Main.storyboard */,
-				3728E6B721AFDE020053497B /* Assets.xcassets */,
-				3728E6B921AFDE020053497B /* LaunchScreen.storyboard */,
-				3728E6BC21AFDE020053497B /* Info.plist */,
 				3753D1F821FDAAC8007A424D /* FirstViewController.swift */,
 				3753D1FA21FDAAD9007A424D /* SecondViewController.swift */,
 				3753D1FC21FDAAE5007A424D /* ThirdViewController.swift */,
-				3753D1FE21FDAB01007A424D /* ResultViewController.swift */,
 				37186F4721FEE49E008FF041 /* FourthViewController.swift */,
-				379777E522005849001BA3B3 /* backhanamaru01.jpg */,
+				3728E6B221AFDDFE0053497B /* ViewController.swift */,
+				3753D1FE21FDAB01007A424D /* ResultViewController.swift */,
+				3728E6B721AFDE020053497B /* Assets.xcassets */,
+				3728E6B421AFDDFE0053497B /* Main.storyboard */,
+				3728E6B921AFDE020053497B /* LaunchScreen.storyboard */,
+				3728E6BC21AFDE020053497B /* Info.plist */,
+				379101842200A57500E47D11 /* images */,
 				3797771F21FF36DF001BA3B3 /* maru.png */,
 				379777DD22001295001BA3B3 /* hanamaru2.png */,
 				379777E32200164B001BA3B3 /* hanamaru03.png */,
@@ -114,6 +112,13 @@
 				3797772321FF50A1001BA3B3 /* siro06.mp3 */,
 			);
 			path = "random number";
+			sourceTree = "<group>";
+		};
+		379101842200A57500E47D11 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		B80D182A3FDFB52BAAEA5691 /* Frameworks */ = {
@@ -200,7 +205,6 @@
 				3797772621FF50A2001BA3B3 /* siro02.mp3 in Resources */,
 				3728E6BB21AFDE020053497B /* LaunchScreen.storyboard in Resources */,
 				3728E6B821AFDE020053497B /* Assets.xcassets in Resources */,
-				379777E62200584A001BA3B3 /* backhanamaru01.jpg in Resources */,
 				379777E122001502001BA3B3 /* hanamaru02.png in Resources */,
 				3728E6B621AFDDFE0053497B /* Main.storyboard in Resources */,
 				3797772521FF50A2001BA3B3 /* siro06.mp3 in Resources */,

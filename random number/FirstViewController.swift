@@ -12,7 +12,6 @@ import LTMorphingLabel
 
 class FirstViewController: UIViewController {
 
-    var timer:Timer!
     var audioPlayer:AVAudioPlayer!
     
     private var effectTimer: Timer?
@@ -27,9 +26,6 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
     }
     
     

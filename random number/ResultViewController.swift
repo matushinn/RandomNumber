@@ -19,7 +19,11 @@ class ResultViewController: UIViewController {
     var modeSecond = 0.0
     var level:Int = 0
     //正解数
-    var correctAnsNum:Int = 0
+    var correctAnsNum = 0
+    //不正解数
+    var incorrectAnsNum = 0.0
+    //評価する正解数
+    var questionNum = 0.0
     var modeQuestionsNum = 0
     
     var gameFormat = 0
@@ -73,7 +77,9 @@ class ResultViewController: UIViewController {
             //制限問題
             print("count")
             lastScore.text = String(format: "%.1f", count)+"秒"
-            rank = count/Double(correctAnsNum)
+            
+            questionNum = Double(correctAnsNum) - incorrectAnsNum
+            rank = count/Double(questionNum)
             
         default:
             break

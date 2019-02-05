@@ -10,14 +10,8 @@ import UIKit
 
 class FourthViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleDetailLabel: UILabel!
-    @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet weak var secondButton: UIButton!
-    @IBOutlet weak var thirdButton: UIButton!
-    @IBOutlet weak var fourthButton: UIButton!
-    @IBOutlet weak var fifthButton: UIButton!
-    @IBOutlet weak var sixthButton: UIButton!
+   
+    
     
     //ゲーム形式区分け
     var gameFormat:Int = 0
@@ -29,35 +23,7 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch gameFormat {
-        case 1:
-            titleLabel.text = "制限時間"
-            titleDetailLabel.text = "〜限られた時間で多くの問題を解け〜"
-            
-            firstButton.setTitle("30s", for: .normal)
-            secondButton.setTitle("60s", for: .normal)
-            thirdButton.setTitle("90s", for: .normal)
-            fourthButton.setTitle("120s", for: .normal)
-            fifthButton.setTitle("150s", for: .normal)
-            sixthButton.setTitle("180s", for: .normal)
-            
-        case 2:
-            titleLabel.text = "制限問題"
-            titleDetailLabel.text = "〜限られた問題数でハイタイムを目指せ〜"
-            
-            firstButton.setTitle("10問", for: .normal)
-            secondButton.setTitle("20問", for: .normal)
-            thirdButton.setTitle("30問", for: .normal)
-            fourthButton.setTitle("50問", for: .normal)
-            fifthButton.setTitle("75問", for: .normal)
-            sixthButton.setTitle("100問", for: .normal)
-            
-            
-        default:
-            break
-        }
     }
-    
     @IBAction func modeButton(_ sender: UIButton) {
         //ボタンを回転
         let rotationAnimation = CABasicAnimation(keyPath:"transform.rotation.z")
